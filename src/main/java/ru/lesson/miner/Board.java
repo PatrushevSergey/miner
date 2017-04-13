@@ -1,5 +1,4 @@
-package ru.lesson.miner.logic;
-
+package ru.lesson.miner;
 
 
 /**

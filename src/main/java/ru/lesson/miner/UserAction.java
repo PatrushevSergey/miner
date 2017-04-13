@@ -1,4 +1,4 @@
-package ru.lesson.miner.logic;
+package ru.lesson.miner;
 
 /**
  * Created by Сергей on 13.04.2017.
