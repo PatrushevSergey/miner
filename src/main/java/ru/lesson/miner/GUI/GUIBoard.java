@@ -2,19 +2,22 @@ package ru.lesson.miner.GUI;
 
 import ru.lesson.miner.Board;
 import ru.lesson.miner.Cell;
-
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by Сергей on 13.04.2017.
+ * представляет собой игровую доску
  */
 public class GUIBoard extends JPanel implements Board {
 
     public static final int PADDING = 50;
     public  static Cell<Graphics>[][] cells;
-    public boolean real = false;
 
+    /**
+     * рисует компоненты доски
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -39,6 +42,9 @@ public class GUIBoard extends JPanel implements Board {
         this.repaint();
     }
 
+    /**
+     * создает окно в случае "взрыва" бомбы
+     */
     public void drawBang() {
         ImageIcon boom = new ImageIcon("C:\\images\\1.png");
         JFrame frame = new JFrame("BOOM!");
@@ -50,19 +56,24 @@ public class GUIBoard extends JPanel implements Board {
         this.repaint();
     }
 
-
+    /**
+     * создает окно победы с фейерверком
+     */
     public void drawCongratulate() {
-        ImageIcon congr = new ImageIcon("C:\\images\\2.jpg");
+        ImageIcon icon = new ImageIcon("C:\\images\\2.jpg");
         JFrame frame = new JFrame("Yeah!!");
         frame.setSize(200, 200);
-        JLabel label = new JLabel(congr);
+        JLabel label = new JLabel(icon);
         frame.getContentPane().add(label);
         frame.setVisible(true);
         Main.centre(frame);
         this.repaint();
-
     }
 
+    /**
+     * возвращает массив клеток
+     * @return
+     */
     public Cell[][] getCell() {
         return cells;
     }

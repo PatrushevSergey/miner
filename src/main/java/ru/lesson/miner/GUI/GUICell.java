@@ -7,6 +7,7 @@ import java.awt.*;
 
 /**
  * Created by Сергей on 13.04.2017.
+ * описывает графическую ячейку
  */
 public class GUICell implements Cell<Graphics> {
     public int x;
@@ -22,13 +23,25 @@ public class GUICell implements Cell<Graphics> {
         this.y = y * 50 + 5;
     }
 
+    /**
+     * возвращает есть или нет бомба
+     * @return
+     */
     public boolean isBomb() {
         return bomb;
     }
 
+    /**
+     * устанавливает бомбу в клеточку
+     */
     public void setBomb() { bomb = true; }
 
-
+    /**
+     * считает бомбы вокруг ячейки
+     * @param x координаты ячейки
+     * @param y коорд
+     * @return
+     */
     public int counter(int x, int y) {
         Cell[][] cells = Main.board.getCell();
         int counter = 0;
@@ -41,6 +54,10 @@ public class GUICell implements Cell<Graphics> {
         return counter;
     }
 
+    /**
+     * проверяет, открыта ячейка или нет
+     * @return
+     */
     public boolean isOpened() {
         return opened;
     }
@@ -52,7 +69,10 @@ public class GUICell implements Cell<Graphics> {
         opened = true;
     }
 
-
+    /**
+     * рисует ячейку и изменения в ней в зависимости от ее состояния
+     * @param paint
+     */
     public void draw(Graphics paint) {
         image = new ImageIcon("C:\\images\\middle.gif").getImage();
         Image boom = new ImageIcon("C:\\images\\bomb.gif").getImage();

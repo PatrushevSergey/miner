@@ -1,8 +1,6 @@
 package ru.lesson.miner.GUI;
 
-import ru.lesson.miner.Generator100;
 import ru.lesson.miner.Generator49;
-import ru.lesson.miner.Generator9;
 import ru.lesson.miner.logic.Easy;
 
 import javax.swing.*;
@@ -13,6 +11,7 @@ import java.awt.event.WindowEvent;
 
 /**
  * Created by Сергей on 14.04.2017.
+ * тут реализуется графический интерфейс игры и запускаются все вспомогательные классы
  */
 public class Main {
     public static final JPanel controlPanel = new JPanel();
@@ -47,6 +46,10 @@ public class Main {
         });
     }
 
+    /**
+     * располагает окно по центру экрана
+     * @param w
+     */
     public static void centre(Window w) {
         Dimension us = w.getSize();
         Dimension then = Toolkit.getDefaultToolkit().getScreenSize();
@@ -55,6 +58,10 @@ public class Main {
         w.setLocation(newX, newY);
     }
 
+    /**
+     * отключает окно при закрытии
+     * @param frame
+     */
     public static void closePerform( JFrame frame) {
         frame.setVisible(false);
         frame.dispose();

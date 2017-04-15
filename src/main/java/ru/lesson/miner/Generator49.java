@@ -12,7 +12,6 @@ public class Generator49 implements GeneratorBoard {
             for (int j = 0; j < 7; j++) {
                 cells[i][j] = new GUICell(i, j);
             }
-
         }
         for (int i = 0; i < 10; i++) {
             cells[(int)(Math.random()*7)][(int)(Math.random()*7)].setBomb();

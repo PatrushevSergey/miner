@@ -12,7 +12,6 @@ public class Generator100 implements GeneratorBoard {
             for (int j = 0; j < 10; j++) {
                 cells[i][j] = new GUICell(i, j);
             }
-
         }
         for (int i = 0; i < 20; i++) {
            cells[(int)(Math.random()*10)][(int)(Math.random()*10)].setBomb();

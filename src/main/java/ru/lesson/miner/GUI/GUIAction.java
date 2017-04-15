@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 
 /**
  * Created by Сергей on 13.04.2017.
+ * описывает действия игрока
  */
 public class GUIAction  implements  UserAction, ActionListener, MouseListener {
 
@@ -26,6 +27,10 @@ public class GUIAction  implements  UserAction, ActionListener, MouseListener {
         this.initGame();
     }
 
+    /**
+     * обрабатывает клик правой и левой кнопок мыши
+     * @param e
+     */
     public void mouseClicked(MouseEvent e) {
         int button = e.getButton();
         if(button == 1) {
@@ -60,6 +65,9 @@ public class GUIAction  implements  UserAction, ActionListener, MouseListener {
 
     }
 
+    /**
+     * инициализирует игру
+     */
     public void initGame() {
         final Cell[][] cells = generator.generate();
         this.board.drawBoard(cells);
