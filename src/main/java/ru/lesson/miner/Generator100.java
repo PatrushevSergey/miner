@@ -14,7 +14,9 @@ public class Generator100 implements GeneratorBoard {
             }
 
         }
-        cells[1][1].setBomb();
+        for (int i = 0; i < 20; i++) {
+           cells[(int)(Math.random()*10)][(int)(Math.random()*10)].setBomb();
+        }
         return cells;
     }
 }

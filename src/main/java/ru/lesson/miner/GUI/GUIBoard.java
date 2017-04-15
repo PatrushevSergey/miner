@@ -22,7 +22,7 @@ public class GUIBoard extends JPanel implements Board {
             for (int x = 0; x != cells.length ; x++) {
                 for (int y = 0; y != cells[0].length; y++) {
                     g.setColor(Color.black);
-                    cells[x][y].draw(g, real);
+                    cells[x][y].draw(g);
                     g.drawRect(x*PADDING, y*PADDING, PADDING, PADDING);
                 }
                 
@@ -40,10 +40,26 @@ public class GUIBoard extends JPanel implements Board {
     }
 
     public void drawBang() {
+        ImageIcon boom = new ImageIcon("C:\\images\\1.png");
+        JFrame frame = new JFrame("BOOM!");
+        frame.setSize(200, 200);
+        JLabel label = new JLabel(boom);
+        frame.getContentPane().add(label);
+        frame.setVisible(true);
+        Main.centre(frame);
         this.repaint();
     }
 
+
     public void drawCongratulate() {
+        ImageIcon congr = new ImageIcon("C:\\images\\2.jpg");
+        JFrame frame = new JFrame("Yeah!!");
+        frame.setSize(200, 200);
+        JLabel label = new JLabel(congr);
+        frame.getContentPane().add(label);
+        frame.setVisible(true);
+        Main.centre(frame);
+        this.repaint();
 
     }
 

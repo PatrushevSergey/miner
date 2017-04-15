@@ -7,5 +7,7 @@ public interface UserAction {
 
     void initGame();
 
-    void select(int x, int y, boolean bomb);
+    void checkNext(int x, int y);
+
+    Cell select(int x, int y);
 }

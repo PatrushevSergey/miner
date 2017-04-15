@@ -9,14 +9,24 @@ public interface Cell<T> {
 
     void setBomb();
 
-    boolean isSuggestBomb();
+    /**считает бомбы вокруг
+     *
+     * @param x координаты ячейки
+     * @param y коорд
+     * @return
+     */
+    int counter(int x, int y);
 
-    boolean isSuggestEmpty();
+    /**проверяет не открыта ли ячейка
+     *
+     * @return тру если открыта
+     */
+    boolean isOpened();
 
-    void suggestEmpty();
+    void setOpened();
 
-    void suggestBomb();
+    void setDrawBomb(boolean b);
 
-    void draw (T paint, boolean real);
+    void draw (T paint);
 
 }

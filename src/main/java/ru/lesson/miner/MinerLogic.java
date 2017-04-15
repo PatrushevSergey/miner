@@ -12,5 +12,4 @@ public interface MinerLogic {
 
     boolean finish();
 
-    void suggest(int x, int y, boolean bomb);
 }

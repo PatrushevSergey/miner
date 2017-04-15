@@ -9,6 +9,8 @@ import ru.lesson.miner.MinerLogic;
 public class Easy implements MinerLogic {
 
     private Cell[][] cells;
+    public boolean finish;
+    public static int counter = 0;
 
     public void loadBoard(Cell[][] cells) {
         this.cells = cells;
@@ -16,24 +18,26 @@ public class Easy implements MinerLogic {
 
     public boolean shouldBang(int x, int y) {
         final Cell selected = this.cells[x][y];
-        return selected.isBomb() && !selected.isSuggestBomb();
+        return selected.isBomb() && selected.isOpened();
     }
 
+    /**
+     * проверяет, не закончена ли игра - если все клетки без бомб открыты
+     * и все с бомбами закрыты
+     * @return
+     */
     public boolean finish() {
-        boolean finish = false;
+
         for(Cell[] row: cells) {
-            for (Cell cell: row) {
-                finish = ((cell.isSuggestBomb() && cell.isBomb()) || (cell.isSuggestEmpty() && !cell.isBomb()));
+            for (Cell cell : row) {
+                if ((!cell.isBomb() && !cell.isOpened())) {
+                    finish = false;
+                    return finish;
+                }
+                else finish = true;
             }
         }
-        return finish;
-    }
-
-    public void suggest(int x, int y, boolean bomb) {
-        if(bomb) {
-            this.cells[x][y].suggestBomb();
-        } else  {
-            this.cells[x][y].suggestEmpty();
-        }
+        System.out.println(finish);
+            return finish;
     }
 }

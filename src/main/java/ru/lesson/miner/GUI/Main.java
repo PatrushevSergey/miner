@@ -1,6 +1,8 @@
 package ru.lesson.miner.GUI;
 
 import ru.lesson.miner.Generator100;
+import ru.lesson.miner.Generator49;
+import ru.lesson.miner.Generator9;
 import ru.lesson.miner.logic.Easy;
 
 import javax.swing.*;
@@ -13,7 +15,7 @@ import java.awt.event.WindowEvent;
  * Created by Сергей on 14.04.2017.
  */
 public class Main {
-    private static final JPanel controlPanel = new JPanel();
+    public static final JPanel controlPanel = new JPanel();
     public static final GUIBoard board = new GUIBoard();
 
     public static void main(String[] args) {
@@ -21,15 +23,17 @@ public class Main {
             public void run() {
                 final JFrame frame = new JFrame();
                 frame.setTitle("Сапер");
-                frame.setLayout(new BorderLayout());;
+                frame.setLayout(new BorderLayout());
                 frame.setSize(515, 580);
                 frame.add(board, BorderLayout.CENTER);
                 board.setBorder(new EmptyBorder(10, 10, 10, 10));
                 frame.add(controlPanel, BorderLayout.PAGE_END);
                 controlPanel.setLayout(new FlowLayout());
-                final  JButton generate = new JButton("Начать");
-                generate.addActionListener(new GUIAction(new Easy(), board, new Generator100()));
-                controlPanel.add(generate);
+                final  JButton generate49 = new JButton("Поле на 49");
+                //final JButton generate100 = new JButton("Поле на 100");
+                generate49.addActionListener(new GUIAction(new Easy(), board, new Generator49()));
+                controlPanel.add(generate49);
+                //controlPanel.add(generate100);
                 centre(frame);
                 frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
                 frame.addWindowListener(new WindowAdapter() {
