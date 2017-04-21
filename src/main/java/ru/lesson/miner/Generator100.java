@@ -13,8 +13,8 @@ public class Generator100 implements GeneratorBoard {
                 cells[i][j] = new GUICell(i, j);
             }
         }
-        for (int i = 0; i < 20; i++) {
-           cells[(int)(Math.random()*10)][(int)(Math.random()*10)].setBomb();
+        for (int i = 0; i < 15; i++) {
+            cells[(int)(Math.random()*10)][(int)(Math.random()*10)].setBomb();
         }
         return cells;
     }

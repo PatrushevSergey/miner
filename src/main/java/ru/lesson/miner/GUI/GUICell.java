@@ -4,6 +4,7 @@ import ru.lesson.miner.Cell;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 /**
  * Created by Сергей on 13.04.2017.
@@ -74,19 +75,19 @@ public class GUICell implements Cell<Graphics> {
      * @param paint
      */
     public void draw(Graphics paint) {
-        image = new ImageIcon("C:\\images\\middle.gif").getImage();
-        Image boom = new ImageIcon("C:\\images\\bomb.gif").getImage();
-        if(drawBomb) paint.drawImage(boom, x, y, null);
+        image = new ImageIcon(getClass().getResource("/images/middle.gif")).getImage();
+        Image boom = new ImageIcon(getClass().getResource("/images/bomb.gif")).getImage();
+        if(drawBomb)  {
+            paint.drawImage(boom, x, y, null);
+        }
         if(!isOpened()) {
             paint.drawRect(x, y, 45, 45);
         }
         else {
             if (isBomb()) {
-                //paint.drawOval(x+10, y+10, 20, 20);
-                //paint.drawOval(x+5 , y+5, 30, 30);
                 paint.drawImage(image, x, y, null);
             } else {
-                paint.drawChars(chars, counter(x,y), 1, x+20, y+20);
+                paint.drawChars(chars, counter(x,y), 1, x+15, y+30);
             }
         }
 

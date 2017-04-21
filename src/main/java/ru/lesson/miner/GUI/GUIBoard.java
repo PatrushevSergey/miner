@@ -46,7 +46,7 @@ public class GUIBoard extends JPanel implements Board {
      * создает окно в случае "взрыва" бомбы
      */
     public void drawBang() {
-        ImageIcon boom = new ImageIcon("C:\\images\\1.png");
+        ImageIcon boom = new ImageIcon(getClass().getResource("/images/1.png"));
         JFrame frame = new JFrame("BOOM!");
         frame.setSize(200, 200);
         JLabel label = new JLabel(boom);
@@ -60,7 +60,7 @@ public class GUIBoard extends JPanel implements Board {
      * создает окно победы с фейерверком
      */
     public void drawCongratulate() {
-        ImageIcon icon = new ImageIcon("C:\\images\\2.jpg");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/2.jpg"));
         JFrame frame = new JFrame("Yeah!!");
         frame.setSize(200, 200);
         JLabel label = new JLabel(icon);
